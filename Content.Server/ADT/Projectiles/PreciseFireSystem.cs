@@ -23,9 +23,6 @@ public sealed partial class PreciseFireSystem : EntitySystem
 
     private void OnHitProjectileAttempt(Entity<MobCollisionComponent> mob, ref ProjectileHitAttemptEvent args)
     {
-        if (args.ToCoordinates == null)
-            return;
-
         if (!TryComp<MobStateComponent>(mob, out var mobState))
             return;
 
@@ -34,8 +31,6 @@ public sealed partial class PreciseFireSystem : EntitySystem
 
         EntityCoordinates mobCoords = new EntityCoordinates(mob, 0, 0);
         Vector2 mapCoords = _transform.ToMapCoordinates(mobCoords, true).Position;
-
-        float len = Vector2Helpers.CompareLength(args.ToCoordinates.Value, mapCoords);
 
         //Log.Debug("ToCoordinates: {ToPrettyString(args.ToCoordinates.Value)}\nMapCoords: {ToPrettyString(mapCoords)}\nDiff: {ToPrettyString(len)}");
 
