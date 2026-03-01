@@ -1,7 +1,9 @@
+using System.Numerics;
 using Content.Shared.Damage;
 using Content.Shared.FixedPoint;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
+using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
 
 namespace Content.Shared.Projectiles;
@@ -104,4 +106,12 @@ public sealed partial class ProjectileComponent : Component
     [DataField, AutoNetworkedField]
     public float? MaxFixedRange;
     // ADT TWEAK END
+
+    // ADT-Tweak-Start
+    /// <summary>
+    ///     Map coordinates where the shooter was aiming when shooting.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public Vector2? ToCoordinates;
+    // ADT-TweakEnd
 }

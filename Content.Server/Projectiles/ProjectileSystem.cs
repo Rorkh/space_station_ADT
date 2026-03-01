@@ -46,7 +46,7 @@ public sealed class ProjectileSystem : SharedProjectileSystem
         }
 
         // ADT TornadoTech Tweak Start
-        var hitAttempt = new ProjectileHitAttemptEvent(component.Damage, target, component.Shooter);
+        var hitAttempt = new ProjectileHitAttemptEvent(component.Damage, target, component.ToCoordinates, component.Shooter);
         RaiseLocalEvent(target, hitAttempt);
         if (hitAttempt.Cancelled)
             return;

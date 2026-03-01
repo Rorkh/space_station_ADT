@@ -281,10 +281,11 @@ public abstract class SharedMagicSystem : EntitySystem
 
         // If applicable, this ensures the projectile is parented to grid on spawn, instead of the map.
         var fromMap = _transform.ToMapCoordinates(fromCoords);
+        var toMap = _transform.ToMapCoordinates(toCoords);
         var ent = Spawn(ev.Prototype, fromMap);
-        var direction = _transform.ToMapCoordinates(toCoords).Position -
+        var direction = toMap.Position -
                          fromMap.Position;
-        _gunSystem.ShootProjectile(ent, direction, userVelocity, ev.Performer, ev.Performer);
+        _gunSystem.ShootProjectile(ent, direction, userVelocity, ev.Performer, ev.Performer, toCoordinates: toMap.Position);
     }
     // End Projectile Spells
     #endregion

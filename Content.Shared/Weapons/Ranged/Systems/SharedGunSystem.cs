@@ -467,7 +467,7 @@ public abstract partial class SharedGunSystem : EntitySystem
         EntityUid? user = null,
         bool throwItems = false);
 
-    public void ShootProjectile(EntityUid uid, Vector2 direction, Vector2 gunVelocity, EntityUid? gunUid, EntityUid? user = null, float speed = 20f)
+    public void ShootProjectile(EntityUid uid, Vector2 direction, Vector2 gunVelocity, EntityUid? gunUid, EntityUid? user = null, float speed = 20f, Vector2? toCoordinates = null)
     {
         var physics = EnsureComp<PhysicsComponent>(uid);
         Physics.SetBodyStatus(uid, physics, BodyStatus.InAir);
@@ -479,6 +479,7 @@ public abstract partial class SharedGunSystem : EntitySystem
 
         var projectile = EnsureComp<ProjectileComponent>(uid);
         projectile.Weapon = gunUid;
+        projectile.ToCoordinates = toCoordinates;
         var shooter = user ?? gunUid;
         if (shooter != null)
             Projectiles.SetShooter(uid, projectile, shooter.Value);

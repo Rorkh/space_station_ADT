@@ -249,11 +249,12 @@ public record struct ProjectileReflectAttemptEvent(EntityUid ProjUid, Projectile
 public record struct ProjectileHitEvent(DamageSpecifier Damage, EntityUid Target, EntityUid? Shooter = null);
 
 // ADT TornadoTech TWEAK START
-public sealed class ProjectileHitAttemptEvent(DamageSpecifier damage, EntityUid target, EntityUid? shooter = null) : CancellableEntityEventArgs
+public sealed class ProjectileHitAttemptEvent(DamageSpecifier damage, EntityUid target, Vector2? toCoordinates, EntityUid? shooter = null) : CancellableEntityEventArgs
 {
     public DamageSpecifier Damage { get; } = damage;
     public EntityUid Target { get; } = target;
     public EntityUid? Shooter { get; } = shooter;
+    public Vector2? ToCoordinates { get; } = toCoordinates;
 }
 
 public sealed class HitScanHitAttemptEvent(EntityUid? shooter, EntityUid target, EntityUid sourceItem) : CancellableEntityEventArgs
