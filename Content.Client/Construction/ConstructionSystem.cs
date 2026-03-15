@@ -418,6 +418,13 @@ namespace Content.Client.Construction
 
             _ghosts.Clear();
         }
+
+        /// ADT-Tweak-Start
+        public Dictionary<int, EntityUid> GetGhosts()
+        {
+            return _ghosts;
+        }
+        /// ADT-Tweak-End
     }
 
     public sealed class CraftingAvailabilityChangedArgs : EventArgs

@@ -59,6 +59,7 @@
   - PrintedDocumentJudgmentRecipe
   - PrintedDocumentStatementHealtheRecipe
   - PrintedDocumentDecisionToStartTrialRecipe
+  - PrintedDocumentConstructionBlueprintRecipe
 
 - type: latheRecipePack
   id: ADTPrinterEmagPack

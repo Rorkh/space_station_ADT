@@ -36,6 +36,7 @@
                         HorizontalExpand="True" SizeFlagsStretchRatio="0.7"/>
                     <Button Name="ClearButton" HorizontalExpand="True" SizeFlagsStretchRatio="0.3"/>
                 </BoxContainer>
+                <Button Name="BlueprintButton" VerticalExpand="True" SizeFlagsStretchRatio="0.5"/>
             </BoxContainer>
         </BoxContainer>
     </BoxContainer>

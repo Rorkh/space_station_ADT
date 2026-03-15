@@ -47,6 +47,7 @@
       - Document
     storage:
       PrinterPaper: 0
+  - type: BlueprintPrinter
   - type: DocumentPrinter 
   - type: ContainerContainer
     containers:

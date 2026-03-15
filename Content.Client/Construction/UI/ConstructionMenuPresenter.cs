@@ -118,6 +118,14 @@ namespace Content.Client.Construction.UI
 
             _constructionView.RecipeFavorited += (_, _) => OnViewFavoriteRecipe();
 
+            /// ADT-Tweak-Start
+            _constructionView.SaveBlueprint += (_, _) =>
+            {
+                if (_systemManager.TryGetEntitySystem<ConstructionBlueprintSystem>(out var constructionBlueprintSystem))
+                    constructionBlueprintSystem.SaveBlueprint();
+            };
+            /// ADT-TweakEnd
+
             SetFavorites(_preferencesManager.Preferences?.ConstructionFavorites ?? []);
             OnViewPopulateRecipes(_constructionView, (string.Empty, string.Empty));
         }

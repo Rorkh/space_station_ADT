@@ -39,6 +39,10 @@ namespace Content.Client.Construction.UI
         event EventHandler<bool> EraseButtonToggled;
         event EventHandler ClearAllGhosts;
 
+        /// ADT-Tweak-Start
+        event EventHandler SaveBlueprint;
+        // ADT-Tweak-End
+
         void ClearRecipeInfo();
         void SetRecipeInfo(string name, string description, EntityPrototype? targetPrototype, bool isItem, bool isFavorite);
         void ResetPlacement();
@@ -138,6 +142,11 @@ namespace Content.Client.Construction.UI
             EraseButton.Text = Loc.GetString("construction-menu-eraser-mode");
             EraseButton.OnToggled += args => EraseButtonToggled?.Invoke(this, args.Pressed);
 
+            // ADT-Tweak-Start
+            BlueprintButton.Text = "Сохранить чертеж";
+            BlueprintButton.OnPressed += _ => SaveBlueprint?.Invoke(this, EventArgs.Empty);
+            // ADT-Tweak-End
+
             FavoriteButton.OnPressed += args => RecipeFavorited?.Invoke(this, EventArgs.Empty);
 
             MenuGridViewButton.OnPressed += _ =>
@@ -150,6 +159,10 @@ namespace Content.Client.Construction.UI
         public event EventHandler? RecipeFavorited;
         public event EventHandler<bool>? BuildButtonToggled;
         public event EventHandler<bool>? EraseButtonToggled;
+
+        /// ADT-Tweak-Start
+        public event EventHandler? SaveBlueprint;
+        /// ADT-Tweak-End
 
         public void ResetPlacement()
         {

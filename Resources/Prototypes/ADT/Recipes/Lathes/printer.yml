@@ -1,0 +1,9 @@
+- type: latheRecipe
+  id: PrintedDocumentConstructionBlueprintRecipe
+  result: PrintedDocumentBlueprint
+  categories:
+  - ADTBlueprints
+  completetime: 5
+  applyMaterialDiscount: false
+  materials:
+    PrinterPaper: 100
